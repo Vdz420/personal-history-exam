@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal History Exam</title>
+    <style>
+        #coordinates {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personal History Exam</h1>
+    <form id="examForm">
+        <div>
+            <label for="firstPet">1. What was the name of my first pet?</label>
+            <input type="text" id="firstPet" name="firstPet">
+        </div>
+        <div>
+            <label for="favoriteTeacher">2. What was the name of my favorite teacher in middle school?</label>
+            <input type="text" id="favoriteTeacher" name="favoriteTeacher">
+        </div>
+        <div>
+            <label for="imaginaryFriend">3. What was the name of my imaginary friend?</label>
+            <input type="text" id="imaginaryFriend" name="imaginaryFriend">
+        </div>
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div id="coordinates">52.0047996, 20.7358565</div>
+
+    <script>
+        function checkAnswers() {
+            const firstPet = document.getElementById('firstPet').value.toLowerCase();
+            const favoriteTeacher = document.getElementById('favoriteTeacher').value.toLowerCase();
+            const imaginaryFriend = document.getElementById('imaginaryFriend').value.toLowerCase();
+
+            let incorrectCount = 0;
+
+            if (firstPet !== 'kamil') incorrectCount++;
+            if (favoriteTeacher !== 'marek butryn') incorrectCount++;
+            if (imaginaryFriend !== 'hayek') incorrectCount++;
+
+            if (incorrectCount === 0) {
+                document.getElementById('coordinates').style.display = 'block';
+            } else {
+                alert(`Incorrect answers. ${incorrectCount} answer(s) are incorrect. Please try again.`);
+            }
+        }
+    </script>
+</body>
+</html>
